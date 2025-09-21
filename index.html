@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ODIN • GoPro Dog — Live POV & Token</title>
+  <meta name="description" content="Odin the Husky — livestream POV, token drops & community challenges" />
+  
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="ODIN • GoPro Dog — Live POV & Token" />
+  <meta property="og:description" content="Watch Odin's world through his GoPro — simple, joyful, and community-first. Token holders vote on live challenges, unlock exclusive streams, and participate in fun community activities." />
+  <meta property="og:image" content="pfp.png" />
+  <meta property="og:url" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ODIN" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ODIN • GoPro Dog — Live POV & Token" />
+  <meta name="twitter:description" content="Watch Odin's world through his GoPro — simple, joyful, and community-first. Token holders vote on live challenges, unlock exclusive streams, and participate in fun community activities." />
+  <meta name="twitter:image" content="pfp.png" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="pfp.png" />
+  <link rel="apple-touch-icon" href="pfp.png" />
+  <style>
+    /* Cute pastel theme + paw cursor */
+    :root{
+      --bg:#fef7f0; /* soft peach cream */
+      --muted:#8b7d6b;
+      --accent:#ff8a95; /* cute pink */
+      --accent-2:#ffb3ba;
+      --accent-3:#ffd1dc;
+      --accent-4:#ffe0e6;
+      --card:#fff;
+      --glass: rgba(255,255,255,0.8);
+      --shadow: 0 20px 40px rgba(255,138,149,0.15);
+      --gradient: linear-gradient(135deg, #ff8a95, #ffb3ba, #ffd1dc);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Baloo 2', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;color:#2b2b2b;background:var(--bg);}
+    a{color:inherit}
+
+    /* cute brown paw cursor */
+    body,button,a,input{cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><g fill='%238B4513'><circle cx='8' cy='20' r='3'/><circle cx='24' cy='20' r='3'/><circle cx='16' cy='16' r='4'/><ellipse cx='16' cy='8' rx='6' ry='4'/><circle cx='12' cy='12' r='2'/><circle cx='20' cy='12' r='2'/></g></svg>") 16 0, auto;}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:36px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:6px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:var(--gradient);display:grid;place-items:center;color:white;font-weight:800;font-size:22px;box-shadow:0 10px 30px rgba(255,138,149,0.2);transition:transform 0.3s ease;overflow:hidden}
+    .logo img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .dog-logo-placeholder{width:100%;height:100%;background:linear-gradient(45deg, #ff8a95, #ffb3ba);display:flex;align-items:center;justify-content:center;color:white;font-size:24px;border-radius:12px}
+    .tag{font-size:13px;color:var(--muted);margin-top:4px}
+
+    .nav{display:flex;gap:18px;align-items:center}
+    .nav a{color:var(--muted);font-weight:700}
+    .pill{background:var(--gradient);color:white;padding:12px 20px;border-radius:20px;border:none;font-weight:800;box-shadow:0 12px 30px rgba(255,138,149,0.2);transition:all 0.3s ease;transform:translateY(0)}
+    .pill:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,138,149,0.3)}
+
+    /* Hero */
+    .hero{text-align:center;padding:80px 12px 30px}
+    .dog-plate{width:160px;height:160px;margin:0 auto;border-radius:26px;background:var(--gradient);display:grid;place-items:center;box-shadow:var(--shadow);border:1px solid rgba(255,138,149,0.1);transition:all 0.4s ease;overflow:hidden;position:relative}
+    .dog-plate img{width:100%;height:100%;object-fit:cover;border-radius:26px}
+    .dog-placeholder{width:100%;height:100%;background:linear-gradient(45deg, #ff8a95, #ffb3ba);display:flex;align-items:center;justify-content:center;color:white;font-size:48px;border-radius:26px}
+    .dog-emoji{font-size:64px;transform:translateY(-2px)}
+    h1{font-size:56px;margin:18px 0 6px;color:var(--accent);letter-spacing:0.6px}
+    p.lead{max-width:820px;margin:0 auto;color:var(--muted);font-size:18px}
+
+    .cta-row{margin-top:22px;display:flex;justify-content:center;gap:12px}
+    .ghost{background:transparent;border:2px solid var(--accent-3);padding:12px 20px;border-radius:20px;color:var(--accent);font-weight:800;transition:all 0.3s ease}
+    .ghost:hover{background:var(--accent-4);border-color:var(--accent-2);transform:translateY(-1px)}
+
+    /* pet stats / features */
+    .features{display:flex;gap:20px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+    .feature{background:var(--card);padding:24px;border-radius:20px;box-shadow:var(--shadow);width:240px;text-align:center;transition:all 0.3s ease;border:1px solid var(--accent-4)}
+    .feature:hover{transform:translateY(-4px);box-shadow:0 25px 50px rgba(255,138,149,0.2)}
+    .feature .icon{height:50px;width:50px;border-radius:15px;background:var(--gradient);display:grid;place-items:center;color:white;margin:0 auto 12px;font-size:20px;transition:transform 0.3s ease}
+    .feature:hover .icon{transform:scale(1.1)}
+    .feature h4{margin:0;font-size:16px}
+    .feature p{margin:8px 0 0;color:var(--muted);font-size:13px}
+
+    /* mission card with paw background */
+    .mission-wrap{display:grid;place-items:center;margin:50px 0}
+    .mission{max-width:900px;background:linear-gradient(180deg,#fff,var(--accent-4));padding:32px;border-radius:24px;box-shadow:0 40px 70px rgba(255,138,149,0.15);border:1px solid var(--accent-3);position:relative;transition:all 0.3s ease}
+    .mission:hover{transform:translateY(-2px);box-shadow:0 50px 80px rgba(255,138,149,0.2)}
+    .mission::after{content:'';position:absolute;right:24px;top:-36px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="%23ffb6a9"><circle cx="12" cy="24" r="6"/><circle cx="26" cy="16" r="5"/><circle cx="42" cy="24" r="6"/><path d="M16 36c6-8 26-8 32 0 0 0-12 18-16 20-4-2-16-20-16-20z"/></g></svg>') no-repeat right top/120px}
+    .mission h2{margin:0 0 8px;color:var(--accent);font-size:30px;text-align:center}
+    .mission p{margin:0;color:var(--muted);text-align:center}
+
+    /* socials as big rounded tiles */
+    .socials{display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+    .tile{background:var(--card);padding:20px 24px;border-radius:20px;display:flex;align-items:center;gap:14px;min-width:220px;box-shadow:var(--shadow);border:1px solid var(--accent-4);transition:all 0.3s ease;text-decoration:none}
+    .tile:hover{transform:translateY(-3px);box-shadow:0 25px 50px rgba(255,138,149,0.2);background:var(--accent-4)}
+    .tile .meta{font-size:13px;color:var(--muted)}
+
+    /* mint row */
+    .mint-row{display:flex;gap:10px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+    .mint-row input{padding:14px 18px;border-radius:16px;border:2px dashed var(--accent-3);min-width:360px;background:var(--accent-4);color:var(--accent);font-weight:600;transition:all 0.3s ease}
+    .mint-row input:focus{outline:none;border-color:var(--accent-2);background:#fff}
+    .small-btn{padding:12px 16px;border-radius:16px;border:none;background:var(--gradient);color:white;font-weight:800;box-shadow:0 10px 24px rgba(255,138,149,0.2);cursor:pointer;transition:all 0.3s ease}
+    .small-btn:hover{transform:translateY(-2px);box-shadow:0 15px 35px rgba(255,138,149,0.3)}
+
+    /* gallery section */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:50px 0;padding:0 20px}
+    .gallery-item{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s ease;aspect-ratio:4/3;background:var(--accent-4)}
+    .gallery-item:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(255,138,149,0.2)}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease}
+    .gallery-item:hover img{transform:scale(1.05)}
+    .gallery-placeholder{width:100%;height:100%;background:var(--gradient);display:flex;align-items:center;justify-content:center;color:white;font-size:48px;border-radius:20px}
+    .gallery-title{text-align:center;margin:40px 0 20px;color:var(--accent);font-size:32px;font-weight:800}
+
+    footer{margin:60px 0 30px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* modal player */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(8,8,8,0.6);z-index:60}
+    .modal .box{width:90%;max-width:920px;background:var(--card);border-radius:12px;overflow:hidden}
+    .modal iframe{width:100%;height:520px;border:0}
+
+    /* responsive design improvements */
+    @media(max-width:1200px){
+      .wrap{padding:24px}
+      .hero{padding:60px 12px 30px}
+    }
+    @media(max-width:900px){
+      h1{font-size:40px}
+      .dog-plate{width:120px;height:120px}
+      .mission::after{display:none}
+      .wrap{padding:20px}
+      .hero{padding:50px 12px 30px}
+      .features{gap:16px}
+      .feature{width:200px}
+      .socials{gap:12px}
+      .tile{min-width:180px;padding:16px 20px}
+      .nav{gap:12px}
+      .nav a{font-size:14px}
+      .pill, .ghost, .donate-btn{padding:10px 16px;font-size:14px}
+    }
+    @media(max-width:768px){
+      .header{flex-direction:column;gap:20px;text-align:center}
+      .nav{flex-wrap:wrap;justify-content:center}
+      .hero{padding:40px 12px 30px}
+      .features{flex-direction:column;align-items:center}
+      .feature{width:100%;max-width:300px}
+      .socials{flex-direction:column;align-items:center}
+      .tile{width:100%;max-width:350px}
+      .mint-row{flex-direction:column;align-items:center}
+      .mint-row input{min-width:unset;width:100%;max-width:400px}
+      .gallery{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;padding:0 15px}
+      .gallery-title{font-size:28px;margin:35px 0 18px}
+    }
+    @media(max-width:520px){
+      .mint-row input{min-width:unset;width:100%}
+      .cta-row{flex-direction:column;align-items:center;gap:12px}
+      .cta-row .pill, .cta-row .ghost{width:100%;max-width:250px;text-align:center}
+      .nav{flex-direction:column;gap:12px;width:100%}
+      .nav a, .nav button{width:100%;text-align:center;padding:12px}
+      .socials{flex-direction:column;align-items:center}
+      .tile{width:100%;max-width:300px}
+      .gallery{grid-template-columns:1fr;gap:16px;padding:0 10px}
+      .gallery-item{aspect-ratio:16/9}
+      .gallery-title{font-size:28px;margin:30px 0 15px}
+    }
+    @media(max-width:320px){
+      .wrap{padding:16px}
+      .hero{padding:30px 8px 20px}
+      h1{font-size:32px}
+      .dog-plate{width:100px;height:100px}
+      .dog-placeholder{font-size:36px}
+      .logo{width:48px;height:48px}
+      .dog-logo-placeholder{font-size:20px}
+    }
+
+    /* playful animations */
+    .dog-emoji{transition:transform .4s cubic-bezier(.2,.8,.3,1)}
+    .dog-plate:hover .dog-emoji{transform:translateY(-8px) rotate(-6deg) scale(1.1)}
+    .dog-plate:hover{transform:scale(1.05)}
+    
+    /* floating animation for logo */
+    .logo:hover{transform:scale(1.1) rotate(5deg)}
+    
+    /* pulse animation for CTA buttons */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .pill{animation: pulse 3s infinite}
+    
+    /* bounce animation for features */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    .feature:nth-child(1) { animation: bounce 2s infinite 0.2s; }
+    .feature:nth-child(2) { animation: bounce 2s infinite 0.4s; }
+    .feature:nth-child(3) { animation: bounce 2s infinite 0.6s; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="pfp.png" alt="Odin Logo" />
+        </div>
+        <div>
+          <div style="font-weight:800">ODIN</div>
+          <div class="tag">GoPro Odin streams</div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a href="#mission">Mission</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#socials">Community</a>
+        <button class="pill" id="buyBtn">Get ODIN</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="dog-plate" aria-hidden>
+          <img src="pfp.png" alt="Odin the Dog" />
+        </div>
+
+        <h1>$ODIN</h1>
+        <p class="lead">Watch Odin's world through his GoPro — simple, joyful, and community-first. Token holders vote on live challenges, unlock exclusive streams, and participate in fun community activities.</p>
+
+        <div class="cta-row">
+          <a href="https://www.twitch.tv" target="_blank" class="pill" id="watchLive">Watch Live</a>
+          <button class="ghost" id="buyNow">Buy Token</button>
+        </div>
+
+        <div class="features" aria-hidden>
+          <div class="feature">
+            <div class="icon">🎥</div>
+            <h4>Live POV</h4>
+            <p>Real-time GoPro feed from Odin's adventures.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">🧸</div>
+            <h4>Community</h4>
+            <p>Join the pack and follow Odin's daily adventures.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">📸</div>
+            <h4>Gallery</h4>
+            <p>Beautiful photos and memories from Odin's journey.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="mission-wrap" id="mission">
+        <div class="mission">
+          <h2>Our Mission</h2>
+          <p>Bring smiles by sharing Odin's adventures — fund creation, support shelters, and create a friendly space where people can enjoy simple, wholesome content.</p>
+        </div>
+      </div>
+
+      <div id="gallery">
+        <h2 class="gallery-title">🐾 Odin's Gallery</h2>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="1.png" alt="Odin Photo 1" />
+          </div>
+          <div class="gallery-item">
+            <img src="2.png" alt="Odin Photo 2" />
+          </div>
+          <div class="gallery-item">
+            <img src="3.png" alt="Odin Photo 3" />
+          </div>
+        </div>
+      </div>
+
+      <div id="socials">
+        <div class="socials">
+          <a class="tile" href="https://twitter.com" target="_blank">
+            <div style="font-size:22px">🐦</div>
+            <div>
+              <div style="font-weight:800">Twitter/X</div>
+              <div class="meta">Follow Odin's updates</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="mint-row" style="margin-top:22px;">
+          <input id="mint" value="SoMePLaCeHoLdErCA111111111111111111111111" readonly />
+          <button class="small-btn" id="copyBtn">Copy CA</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>© 2025 ODIN • Made by ODIN</div>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="box">
+      <iframe id="player" src="" allow="autoplay; fullscreen"></iframe>
+    </div>
+  </div>
+
+
+  <script>
+    // basic interactions
+    document.getElementById('copyBtn').addEventListener('click', async ()=>{
+      const v=document.getElementById('mint').value;
+      try{await navigator.clipboard.writeText(v); document.getElementById('copyBtn').innerText='Copied'; setTimeout(()=>document.getElementById('copyBtn').innerText='Copy Mint',1600)}catch(e){alert('Copy failed')}
+    });
+
+    const modal=document.getElementById('modal');
+    modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.style.display='none'; document.body.style.overflow='auto' } });
+
+    document.getElementById('buyNow').addEventListener('click', ()=>{ const m=document.getElementById('mint').value; window.open('https://pump.fun/live','_blank')});
+    document.getElementById('buyBtn').addEventListener('click', ()=>document.getElementById('buyNow').click());
+  </script>
+</body>
+</html>
